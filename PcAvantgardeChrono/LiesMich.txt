@@ -1,0 +1,43 @@
+Hinweis zum Betrachten dieser Datei
+-----------------------------------------------
+
+Die meisten guten Tools unterstützen "Soft Wrap" oder eine ähnliche Funktion, um lange Texte vom Editor umbrechen zu lassen bei der Anzeige. Solche Tools sind z.B. Notepad++ (Windows), Gedit (Unix/Linux) oder auch TextWrangler (Mac OS).
+
+
+Implementierung
+----------------------
+
+Die Implementierung ist nicht perfekt. Sie enthält noch einige Bugs (oder Features wie man es nennen mag), die noch nicht behoben wurden. Manchmal tritt ein Problem bei der Synchronisation mit dem NTP-Server auf. Die Synchronisation könnte besser eingebunden werdne, als es gemacht wurde.
+
+Es wurde ein kleiner Logger realisiert, der Logging-Nachrichten in die Konsole schreibt.
+
+An sehr wenigen Stellen wurden spezifische Annotationen verwendet, welche aus dem Paket boxmodel stammen. Diese Annotationen können ignoriert werden, da sie nur in kleinen Menschenkreisen bekannt sind. Sie stammen ursprünglich aus einem Software Engineering Forschungsprojet.
+
+An manchen Stellen wurde unsauber programmiert. Dies betrifft hauptsächlich die Synchronisation mit dem NTP-Server. Der Quelltext der Synchronisation stammt ursprŸnglich von einem anderen Entwickler, welcher lediglich angepasst wurde.
+
+Werkzeug Ant
+--------------------
+
+Übersetzt wird das System mit dem Werkzeug Ant. 
+In der build.xml-Datei sind Targets definiert, welche aufgerufen werden können.
+
+Mit "ant -p" kann man sich diese Targets anzeigen lassen.
+Um ein Target auszuführen, wird das Target ant als Parameter übergeben.
+Vorausgesetzt wird, dass man sich im root-Verzeichnis des Projektes befindet.
+
+Beispiele:
+
+	ant compile
+	ant javadoc
+
+Um das Uhrsystem zu starten, das Skript start.sh aufrufen mit ./start.sh .
+Alternativ kann auch ant start aufgerufen werden.
+
+Wenn  der Build Path nicht angepasst wurde, sollte das Programm nicht mit Eclipse übersetzt werden, da ansonsten die binäre Ausgabe unweigerlich woanders gespeichert wird. Sprich die Verzeichnisstruktur geht kaputt.
+
+Dokumentation / Vortrag
+---------------------------------
+
+Im Verzeichnis doc sind die Präsentation und die von Javadoc erzeugte API zu finden. Javadoc ist bei weitem nicht ausführlich dokumentiert. Die Javadoc kann nicht mehr fehlerfrei erzeugt werden. Dies liegt an den eingefügten Annotationen. Die Präsentation ist sowohl als binäre Datei als auch als TeX-Quelltext zu finden. übersetzt wird dieser Quelltext mit dem wunderbaren Tool LaTeX (hier: pdflatex).
+
+ 

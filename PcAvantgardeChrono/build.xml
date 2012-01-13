@@ -1,0 +1,37 @@
+<project name="Uhrsystem" basedir="." default="compile">
+	<property name="bin" location="bin"/>
+	<property name="src" location="src"/>
+	<property name="javadoc"   location="doc/api"/>
+	<property name="classpath" location="lib/boxmodel.jar"/>
+	
+    <target name="init" description="Initialisieren">
+		<mkdir dir="${bin}"/>
+    		<mkdir dir="${javadoc}"/>    		
+    </target>
+	
+	<target name="compile" depends="init" description="Übersetzt alle Quelltexte">
+		<javac 	srcdir="${src}"
+			destdir="${bin}"
+			classpath="${classpath}"
+		/>
+	</target>
+	
+	<target name="clean" description="Entfernt das Verzeichnis mit den Binärdateien">
+		<delete dir="${bin}"/>
+	</target>
+	
+	<target name="javadoc" description="Erzeugt die JavaDoc">
+		<javadoc sourcepath="${src}" 
+			 packagenames="*"  
+			 destdir="${javadoc}"
+			 encoding="ISO-8859-1"
+			private="off"
+			 />
+	</target>
+	
+	<target name="start" description="Startet das System (indem ein Bash-Skript aufgerufen wird)">
+		<exec executable="./start.sh">
+		</exec>
+	</target>
+		
+</project>
